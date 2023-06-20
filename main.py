@@ -9,7 +9,7 @@ def scan_port(ipaddress, port,):
     try:
         sockt = socket.socket()
         sockt.connect((ipaddress, port))
-        print(ipaddress + " : [+] open : " + str(port))
+        print(termcolor.colored(("[+] open : " + str(port)), "yellow"))
         sockt.close()
     except:
         pass
@@ -18,7 +18,7 @@ targets = input("[>] Target/s - comma separated : ")
 ports = int(input("[>] Number of ports : "))
 
 if ',' in targets:
-    print("[*] Scanning multiple targets.")
+    print(termcolor.colored(("[*] Scanning multiple targets."), "green"))
     for ip_addr in targets.split(','):
         scan(ip_addr.strip(' '), ports)
 else:
